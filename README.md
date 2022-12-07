@@ -1,70 +1,110 @@
-# Google Style Guides
+# Keesh Style Guides
 
-Every major open-source project has its own style guide: a set of conventions
-(sometimes arbitrary) about how to write code for that project. It is much
-easier to understand a large codebase when all the code in it is in a consistent
-style.
+You will find this project published at
+[https://keesh-style.github.io/styleguide/](https://keesh-style.github.io/styleguide/)
 
-“Style” covers a lot of ground, from “use camelCase for variable names” to
-“never use global variables” to “never use exceptions.” This project
-([google/styleguide](https://github.com/google/styleguide)) links to the style
-guidelines we use for Google code. If you are modifying a project that
-originated at Google, you may be pointed to this page to see the style guides
-that apply to that project.
+As a rule, we adopt the Google Style Guides below for various languages. The most pertinent:
 
-This project holds the following style guides:
+* [Python Style Guide][py]
+* [HTML/CSS Style Guide][htmlcss]
+* [JavaScript Style Guide][js]
+* [TypeScript Style Guide][ts]
+* [Shell Style Guide][sh]
 
-*   [AngularJS Style Guide][angular]
-*   [Common Lisp Style Guide][cl]
-*   [C++ Style Guide][cpp]
-*   [C# Style Guide][csharp]
-*   [Go Style Guide][go]
-*   [HTML/CSS Style Guide][htmlcss]
-*   [JavaScript Style Guide][js]
-*   [Java Style Guide][java]
-*   [Objective-C Style Guide][objc]
-*   [Python Style Guide][py]
-*   [R Style Guide][r]
-*   [Shell Style Guide][sh]
-*   [Swift Style Guide][swift]
-*   [TypeScript Style Guide][ts]
-*   [Vimscript Style Guide][vim]
+In addition, we use the following:
 
-This project also contains [cpplint][cpplint], a tool to assist with style guide
-compliance, and [google-c-style.el][emacs], an Emacs settings file for Google
-style.
+* [Forking Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow) in github.
+* [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for commit messages.
+* [Clickup Github](https://help.clickup.com/hc/en-us/articles/6305771568791-GitHub) for linking code to issues.
+* [Semantic Versioning](https://semver.org/) guidelines for versioning.
+* [Loom PR Commentary](https://loom.com) to help reviewers understand what you've done as they review your code.
 
-If your project requires that you create a new XML document format, the
-[XML Document Format Style Guide][xml] may be helpful. In addition to actual
-style rules, it also contains advice on designing your own vs. adapting an
-existing format, on XML instance document formatting, and on elements vs.
-attributes.
+Code reviews are done by the team then a final check is done by the project's lead developer.
 
-The style guides in this project are licensed under the CC-By 3.0 License, which
-encourages you to share these documents. See
-[https://creativecommons.org/licenses/by/3.0/][ccl] for more details.
+## Conventional Commits Summary
 
-The following Google style guide lives outside of this project:
-[Effective Dart][dart].
+**Note**: For most of the commits we will be using title only.
 
-## Contributing
+### Message Structure
 
-With few exceptions, these style guides are copies of Google's internal style
-guides to assist developers working on Google owned and originated open source
-projects. Changes to the style guides are made to the internal style guides
-first and eventually copied into the versions found here. **External
-contributions are not accepted.** Pull requests are regularly closed without
-comment. Issues that raise questions, justify changes on technical merits, or
-point out obvious mistakes may get some engagement and could in theory lead to
-changes, but we are primarily optimizing for Google's internal needs.
+A commit messages consists of three distinct parts separated by a blank line: the title, an optional body and an optional footer. The layout looks like this:
 
-<a rel="license" href="https://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/3.0/88x31.png" /></a>
+```html
+type: Subject
+
+body
+
+footer
+```
+
+The title consists of the type of the message and subject.
+
+### The Type
+
+The type is contained within the title and can be one of these types:
+
+* **build**: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+* **ci**: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+* **docs**: Documentation only changes
+* **feat**: A new feature
+* **fix**: A bug fix
+* **perf**: A code change that improves performance
+* refactor: A code change that neither fixes a bug nor adds a feature
+* **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+* **test**: Adding missing tests or correcting existing tests
+
+## The Subject
+
+Subjects should be no greater than 50 characters, should begin with a capital letter and do not end with a period.
+
+Use an imperative tone to describe what a commit does, rather than what it did. For example, use change; not changed or changes.
+
+### The Body
+
+Not all commits are complex enough to warrant a body, therefore it is optional and only used when a commit requires a bit of explanation and context. Use the body to explain the what and why of a commit, not the how.
+
+When writing a body, the blank line between the title and the body is required and you should limit the length of each line to no more than 72 characters.
+
+### The Footer
+
+The footer is optional and is used to reference issue tracker IDs.
+
+### Example Commit Message
+
+```html
+feat: Summarize changes in around 50 characters or less
+
+More detailed explanatory text, if necessary. Wrap it to about 72
+characters or so. In some contexts, the first line is treated as the
+subject of the commit and the rest of the text as the body. The
+blank line separating the summary from the body is critical (unless
+you omit the body entirely); various tools like `log`, `shortlog`
+and `rebase` can get confused if you run the two together.
+
+Explain the problem that this commit is solving. Focus on why you
+are making this change as opposed to how (the code explains that).
+Are there side effects or other unintuitive consequences of this
+change? Here's the place to explain them.
+
+Further paragraphs come after blank lines.
+
+ - Bullet points are okay, too
+
+ - Typically a hyphen or asterisk is used for the bullet, preceded
+   by a single space, with blank lines in between, but conventions
+   vary here
+
+If you use an issue tracker, put references to them at the bottom,
+like this:
+
+Resolves: #123
+See also: #456, #789
+```
 
 [cpp]: https://google.github.io/styleguide/cppguide.html
 [csharp]: https://google.github.io/styleguide/csharp-style.html
 [swift]: https://google.github.io/swift/
 [objc]: objcguide.md
-[go]: go/
 [java]: https://google.github.io/styleguide/javaguide.html
 [py]: https://google.github.io/styleguide/pyguide.html
 [r]: https://google.github.io/styleguide/Rguide.html
@@ -78,5 +118,6 @@ changes, but we are primarily optimizing for Google's internal needs.
 [cpplint]: https://github.com/google/styleguide/tree/gh-pages/cpplint
 [emacs]: https://raw.githubusercontent.com/google/styleguide/gh-pages/google-c-style.el
 [xml]: https://google.github.io/styleguide/xmlstyle.html
+[go]: https://golang.org/wiki/CodeReviewComments
 [dart]: https://www.dartlang.org/guides/language/effective-dart
 [ccl]: https://creativecommons.org/licenses/by/3.0/
